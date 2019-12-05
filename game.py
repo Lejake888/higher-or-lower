@@ -4,7 +4,9 @@ flag = True
 guesses = 0
 
 def menu():
-    choice = int(input("Welcome to 'Higher or Lower': 1- Default 2- Custom "))
+    print("Welcome to 'Higher or Lower'")
+    print("1- Default 2- Custom")
+    choice = int(input())
     if choice == 1:
         lower = 0
         higher = 100
