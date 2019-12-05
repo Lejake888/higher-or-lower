@@ -6,21 +6,23 @@ guesses = 0
 def menu():
     choice = int(input("Welcome to 'Higher or Lower': 1- Default 2- Custom "))
     if choice == 1:
-        randomNumber = random.randint(0,100)
+        lower = 0
+        higher = 100
     elif choice == 2: 
-        randomNumber = setUp()
-    guess(guesses, randomNumber)
-
-def setUp():
-    lower = int(input("Set the smallest number: "))
-    higher = int(input("Set the highest number: "))
+        lower = int(input("Set the smallest number: "))
+        higher = int(input("Set the highest number: "))
     randomNumber = random.randint(lower,higher)
-    return(randomNumber)
+    guess(guesses, randomNumber, lower, higher)
 
-def guess(noOfGuesses, randomNumber):
+def validNumberCheck(guess, lower, higher):
+    if guess > higher or guess < lower:
+        print("Not in range")
+
+def guess(noOfGuesses, randomNumber, l, h):
     flag = True
     while flag:
         guess = int(input("Guess a number: "))
+        validNumberCheck(guess,l,h)
         if guess > randomNumber:
             print("Lower")
         elif guess < randomNumber:
