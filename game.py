@@ -16,6 +16,13 @@ def menu():
     randomNumber = random.randint(lower,higher)
     guess(guesses, randomNumber, lower, higher)
 
+def playAgain():
+    choice = input("Do you want to play again? (Y/N)").upper()
+    if choice == "Y":
+        menu()
+    else:
+        exit()
+
 def validNumberCheck(guess, lower, higher):
     if guess > higher or guess < lower:
         print("Not in range")
@@ -32,6 +39,7 @@ def guess(noOfGuesses, randomNumber, l, h):
         else:
             print("You win!")
             flag = False
+            playAgain()
         noOfGuesses = noOfGuesses + 1
         print("Number of guesses: ", noOfGuesses)
 
