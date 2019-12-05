@@ -2,6 +2,7 @@ import random
 
 flag = True
 guesses = 0
+best = 0
 
 def menu():
     print("Welcome to 'Higher or Lower'")
@@ -16,8 +17,17 @@ def menu():
     randomNumber = random.randint(lower,higher)
     guess(guesses, randomNumber, lower, higher)
 
+def bestScore(best, amount):
+    if not best:
+        best = amount
+        return best
+    elif best > amount:
+        best = amount
+        return best
+    else:
+        pass
 def playAgain():
-    choice = input("Do you want to play again? (Y/N)").upper()
+    choice = input("Do you want to play again? (Y/N) ").upper()
     if choice == "Y":
         menu()
     else:
@@ -42,5 +52,5 @@ def guess(noOfGuesses, randomNumber, l, h):
             playAgain()
         noOfGuesses = noOfGuesses + 1
         print("Number of guesses: ", noOfGuesses)
-
+        print("Best score: ", bestScore(best, noOfGuesses))
 menu()
