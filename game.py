@@ -1,9 +1,10 @@
 import random
 
 flag = True
-randomNumber = random.randint(0,10)
+noOfGuesses = 0
+randomNumber = random.randint(0,100)
 
-def randomiser():
+def randomiser(noOfGuesses):
     guess = int(input("Guess a number: "))
     if guess > randomNumber:
         print("Lower")
@@ -11,6 +12,8 @@ def randomiser():
         print("Higher")
     else:
         print("You win!")
+    noOfGuesses = noOfGuesses + 1
+    print("Number of guesses: ", noOfGuesses)
 
 while flag == True:
-    randomiser()
+    randomiser(noOfGuesses)
